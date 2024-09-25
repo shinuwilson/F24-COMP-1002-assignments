@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Forms</title>
+</head>
+
+<body>
+
+    <form class="form-container">
+        <fieldset>
+            <legend>Your Details</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Your Review</legend>
+            <div>
+            <label for="hear_about_us">How did you heard about us:</label>
+            <select name="hear_about_us" id="hear_about_us">
+                <option value="Google">Google</option>
+                <option value="Magazines">Magazines</option>
+                <option value="Friends">Friends</option>
+            </select>
+            <br><br>
+            </div>
+            <div>
+                Would you vist again
+            </div>
+            <br>
+            <div>
+                <input type="radio" name="choice" id="yes">
+                <label for="yes">Yes</label>
+
+                <input type="radio" name="choice" id="no">
+                <label for="no">No</label>
+
+                <input type="radio" name="choice" id="maybe">
+                <label for="maybe">May be</label>
+
+            </div><br>
+            <div>
+                Comments:
+            </div><br>
+            <div>
+                <textarea id="Comments" name="Comments"></textarea>
+            </div>
+            <div>
+                <input type="checkbox" id="agree_terms" name="terms">
+                <label for="agree_terms">Sign me up for email address</label>
+            </div>
+            <div>
+                <button>Submit review</button>
+            </div>
+        </fieldset>
+    </form>
+
+</body>
+</html>
