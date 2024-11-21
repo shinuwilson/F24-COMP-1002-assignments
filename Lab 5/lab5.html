@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculate the Sum of Numbers from 1 to N</h1>
+
+    <script>
+        let userInput = prompt("Enter a number (N):");
+        let N = parseInt(userInput);
+        let sum = 0;
+        let counter = 1;
+
+        if (!isNaN(N) && N > 0) {
+            // Calculateing the sum using a while loop
+            while (counter <= N) {
+                sum += counter;
+                counter++;
+            }
+
+            // Use document.write to display the result
+            document.write(`<p>The sum of numbers from 1 to ${N} is: ${sum}</p>`);
+        } else {
+            // Display an error message using document.write
+            document.write(`<p>Please enter a valid positive number!</p>`);
+        }
+    </script>
+</body>
+</html>
