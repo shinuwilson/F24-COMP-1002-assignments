@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="description" content="Order your pizza with variety options."> <!-- Describes the page -->
+    <meta name="keywords" content="Pizza Order, Online Pizza, Pizza Toppings"> <!-- Keywords-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Order Form</title> <!-- Page title -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* padding and border are included in element's width and height */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif; /* Sets font */
+            background: url(pizza-background.webp) no-repeat center center fixed; /* Background image */
+            background-size: cover; /* background image covers the entire area */
+            height: 100vh; /* Sets the height to full viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centers content */
+            color: #fff; /* White text color */
+            position: relative; /* Positioning for overlay */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+            z-index: -1; /* fix the overlay behind the content */
+        }
+
+        .order-form-section {
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+            border-radius: 10px; /* Rounds the corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Adds a shadow */
+            z-index: 1; /* Ensures this content is above the overlay */
+        }
+
+        .order-form-section h1 {
+            text-align: center;
+            margin-bottom: 30px; /* Adds space below the heading */
+            font-size: 2.2em;
+            color: #ff5733; /* Sets the text color orange */
+        }
+
+        .form-group {
+            margin-bottom: 20px; /* Adds space below each form group */
+        }
+
+        .form-group label {
+            display: block; /* Ensures labels appear on their own lines */
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333; /* Dark text color for readability */
+        }
+
+        .form-group input, .form-group select {
+            width: 100%; /* select boxes full width */
+            padding: 12px; /* Adds padding inside inputs */
+            border: 1px solid #ddd; /* Light gray border */
+            border-radius: 5px; /* Rounds the corners */
+            font-size: 16px; /* Font size for inputs */
+        }
+
+        .form-group input[type="radio"], .form-group input[type="checkbox"] {
+            width: auto; /* set the radio buttons and checkboxes to stay their natural size */
+            margin-right: 10px; /* Adds space between the radio/checkbox and its label */
+        }
+
+        .form-group label.inline {
+            display: inline-block; /* Aligns labels inline next to radio buttons and checkboxes */
+            margin-right: 15px;
+        }
+
+        .form-group button {
+            width: 100%; /* Makes the button in full width */
+            padding: 15px; /* Adds padding inside the button */
+            background-color: #ff5733; /* Orange background */
+            color: white; /* White text */
+            font-size: 18px;
+            border: none; /* Removes border */
+            border-radius: 5px; /* Rounds the corners */
+            transition: background-color 0.3s ease; /* Smooth transition effect on hover */
+        }
+
+        .form-group button:hover {
+            background-color: #ff2e00; /* Darker orange on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div> <!-- Overlay to improve readability of form over background image -->
+    <main class="order-form-section">
+        <h1>Place Your Pizza Order</h1>
+        <form action="submit_order.php" method="post"> <!-- Form sends data to submit_order.php on submission -->
+            <div class="form-group">
+                <label for="name">Name:</label> <!--lable for name input field -->
+                <input type="text" id="name" name="name" required> <!-- Text input for the user's name -->
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label> <!--lable for email input field -->
+                <input type="email" id="email" name="email" required> <!-- Email input field -->
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label> <!--lable for phone number input field -->
+                <input type="tel" id="phone" name="phone" required> <!-- Phone number input field -->
+            </div>
+
+            <div class="form-group">
+                <label for="pizza">Choose Your Pizza:</label> <!-- Label for the pizza selection -->
+                <select id="pizza" name="pizza" required> <!-- Dropdown to select pizza type -->
+                    <option value="">Select a pizza</option> <!-- Placeholder option -->
+                    <option value="margherita">Margherita</option> <!-- Pizza option -->
+                    <option value="pepperoni">Pepperoni</option> <!-- Pizza option -->
+                    <option value="veggie">Veggie</option> <!-- Pizza option -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Choose Size:</label> <!-- Label for pizza size selection -->
+                <input type="radio" id="small" name="size" value="small"> <!-- Radio button for small size -->
+                <label for="small" class="inline">Small</label>
+                <input type="radio" id="medium" name="size" value="medium" checked> <!-- Pre-selected radio button for medium size -->
+                <label for="medium" class="inline">Medium</label>
+                <input type="radio" id="large" name="size" value="large"> <!-- Radio button for large size -->
+                <label for="large" class="inline">Large</label>
+            </div>
+
+            <div class="form-group">
+                <label>Select Toppings:</label> <!-- Label for selecting pizza toppings -->
+                <input type="checkbox" id="cheese" name="toppings[]" value="extra cheese"> <!-- Checkbox for extra cheese -->
+                <label for="cheese" class="inline">Extra Cheese</label>
+                <input type="checkbox" id="peppers" name="toppings[]" value="peppers"> <!-- Checkbox for peppers -->
+                <label for="peppers" class="inline">Peppers</label>
+                <input type="checkbox" id="olives" name="toppings[]" value="olives"> <!-- Checkbox for olives -->
+                <label for="olives" class="inline">Olives</label>
+                <input type="checkbox" id="mushrooms" name="toppings[]" value="mushrooms"> <!-- Checkbox for mushrooms -->
+                <label for="mushrooms" class="inline">Mushrooms</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Order Now</button> <!-- Button to submit the form -->
+            </div>
+        </form>
+    </main>
+</body>
+</html>
